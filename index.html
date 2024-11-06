@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veritas University</title>
+
+  <link rel="icon" href="https://admission.veritas.edu.ng/ui/dist/img/vuna.png" type="image/x-icon" >
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://admission.veritas.edu.ng/ui/plugins/fontawesome-free/css/all.min.css ">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="https://admission.veritas.edu.ng/ui/dist/css/adminlte.min.css">
+
+  <link rel="stylesheet" href="https://admission.veritas.edu.ng/ui/dist/css/custom_style.css">
+
+  <link rel="stylesheet" type="text/css" href="https://admission.veritas.edu.ng/ui/plugins/toastr/toastr.min.css">
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="https://admission.veritas.edu.ng/ui/plugins/select2/css/select2.min.css ">
+
+    <link rel="stylesheet" href="https://admission.veritas.edu.ng/ui/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css ">
+
+    <link rel="stylesheet" href="https://admission.veritas.edu.ng/ui/plugins/multilevel-form/multi_level.css ">
+
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css" rel="stylesheet">
+
+  <style >[wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {display:none;}[wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {animation-duration: 50000s;animation-name: livewireautofill;}@keyframes livewireautofill { from {} }</style>
+
+  </head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+            
+            <nav class="main-header navbar navbar-expand navbar-success navbar-dark" style="background-color: #10a310;">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a  href="#" class="nav-link" data-widget="pushmenu"  role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="https://admission.veritas.edu.ng/student/dashboard" class="nav-link">Home</a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">NYITSE AONDONGU DON-PETERS</a>
+        </li>
+      <!-- Navbar Search -->
+
+
+      <!-- Messages Dropdown Menu -->
+
+      <!-- Notifications Dropdown Menu -->
+
+
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="" data-toggle="dropdown" href="#">
+          <div class="user-panel d-flex">
+                <div class="image">
+                                            <img src="data:image/jpeg;base64,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" class="img-circle" alt="User Image">
+                                    </div>
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-header"> Settings</span>
+          <div class="dropdown-divider"></div>
+          <a href="https://admission.veritas.edu.ng/student/my-profile" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> View Profile
+          </a>
+          <a href="https://admission.veritas.edu.ng/student/change-password" class="dropdown-item mt-2">
+            <i class="fas fa-key mr-2"></i> Change Password
+          </a>
+          <div class="dropdown-divider"></div>
+          <form action="https://admission.veritas.edu.ng/student/logout" method="POST">
+            <input type="hidden" name="_token" value="eH6LKdixKzLMCTvyuHYdcc35sQOEUru6OKCmI2DE">            <a href="https://admission.veritas.edu.ng/student/logout" onclick="event.preventDefault(); this.closest('form').submit();" class="dropdown-item ">
+                <i class="nav-icon fas fa-sign-out-alt mr-2"></i>Logout
+            </a>
+        </form>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
+    </ul>
+</nav>
+
+            
+    <!-- Main Sidebar Container -->
+    
+        
+            <aside class="main-sidebar sidebar-dark-success elevation-4">
+    <!-- Brand Logo -->
+    <a href="https://admission.veritas.edu.ng/student/dashboard" class="brand-link">
+      <img src="https://admission.veritas.edu.ng/ui/dist/img/vuna.png" alt="Veritas Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Veritas E-Campus</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-item">
+              <a href="https://admission.veritas.edu.ng/student/dashboard" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                  Dashboard
+                  </p>
+              </a>
+            </li>
+            
+                
+                    <li class="nav-item">
+                            <a href="#" class="nav-link   ">
+                                <i class="far fa-dot-circle nav-icon"></i>
+                                <p>
+                                    Academics
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://admission.veritas.edu.ng/student/regular/academics/course-registration" class="nav-link   ">
+                                        <i class="nav-icon fas fa-book-open"></i>
+                                        <p>
+                                            Course Registration
+                                        </p>
+                                    </a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a  href="https://admission.veritas.edu.ng/student/regular/academics/my-transcript" class="nav-link ">
+                                    <i class="far fa-circle nav-icon"></i>
+                                        <p>Unofficial Transcript</p>
+                                    </a>
+                                </li>
+                            </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link     ">
+                            <i class="far fa-credit-card nav-icon"></i>
+                            <p>
+                                Finance
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a  href="https://admission.veritas.edu.ng/student/regular/payments/select-hostel" class="nav-link  ">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>Pay Tuition Fee</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a  href="https://admission.veritas.edu.ng/student/regular/payments/other-payment" class="nav-link  ">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>Pay Other Fees</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://admission.veritas.edu.ng/student/regular/payments/payment-history" class="nav-link  ">
+                                    <i class="nav-icon far fa-dot-circle"></i>
+                                    <p>
+                                        Payment History
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a  href="https://admission.veritas.edu.ng/student/regular/payments/rrr-history" class="nav-link  ">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>RRR History</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                                        <li class="nav-item">
+                        <a href="#" class="nav-link   ">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>
+                                Updates
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="https://admission.veritas.edu.ng/student/regular/update/update-passport" class="nav-link   ">
+                                    <i class="nav-icon fas fa-book-open"></i>
+                                    <p>
+                                        Update Passport
+                                    </p>
+                                </a>
+                            </li>
+                                                    </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://admission.veritas.edu.ng/student/regular/select-category" class="nav-link  ">
+                            <i class="nav-icon fa fa-home"></i>
+                            <p>
+                                Accomodation
+                            </p>
+                        </a>
+                    </li>
+                
+                
+                
+
+                        <li class="nav-item">
+                <form action="https://admission.veritas.edu.ng/student/logout" method="POST">
+                    <input type="hidden" name="_token" value="eH6LKdixKzLMCTvyuHYdcc35sQOEUru6OKCmI2DE">                    <a href="https://admission.veritas.edu.ng/student/logout" onclick="event.preventDefault(); this.closest('form').submit();" class="nav-link">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>
+                            Logout
+                        </p>
+                    </a>
+                </form>
+            </li>
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
+
+        
+    
+<!-- Main Sidebar Container End -->
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div wire:id="OkatA7KPhKWxiE8WviYT" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;OkatA7KPhKWxiE8WviYT&quot;,&quot;name&quot;:&quot;student.my-profile&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;student\/my-profile&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;21ceff0e&quot;,&quot;data&quot;:[],&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;68ca2423f1bc9245da8b20a12cb494cdf7e744e5c1db7ea43fab4b4362d6cefa&quot;}}">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+            <h1 class="m-0">Student Profile</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="https://admission.veritas.edu.ng/student/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active">my-profile</li>
+            </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="card">
+                        <div class="card  card-primary card-outline">
+                            <!-- /.card-header -->
+                            <div class="card-header">
+                                <h5>Personal Information</h5>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- /.card-body -->
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                <table class="table table-hover table-bordered table-striped">
+                                    <tbody>
+
+                                        <tr>
+                                            <td><b>First Name </b></td>
+                                            <td> Aondongu </td>
+
+                                            <td><b>Middle Name </b></td>
+                                            <td> Don-peters </td>
+
+                                            <td><b>Last Name </b></td>
+                                            <td> Nyitse </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Title </b></td>
+                                            <td> </td>
+
+                                            <td><b>Gender </b></td>
+                                            <td>Male </td>
+
+                                            <td><b>Date of Birth </b></td>
+                                            <td> 2005-09-24</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Nationality </b></td>
+                                            <td> Nigeria</td>
+
+                                            <td><b>Religion </b></td>
+                                            <td> Christian(Catholic)</td>
+
+                                            <td><b>Marital Status </b></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Phone Number </b></td>
+                                            <td> 07017372590 </td>
+
+                                            <td><b>Email </b></td>
+                                            <td> ikyengbuusu@gmail.com</td>
+
+                                            <td><b>State of Origin </b></td>
+                                            <td>Benue </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b> Local Govt. Area </b></td>
+                                            <td>Guma </td>
+
+                                            <td><b>Residence City </b></td>
+                                            <td>No 5 Dzeryongu Afella close High-Level, Makurdi </td>
+
+                                            <td><b>Veritas Email </b></td>
+                                            <td> vug/ceg/22/7428@eng.veritas.edu.ng</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b> Hobbies</b></td>
+                                            <td> </td>
+
+                                            <td><b>Residence Address </b></td>
+                                            <td colspan="3"> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+
+                        <div class="card  card-primary card-outline">
+                            <!-- /.card-header -->
+                            <div class="card-header">
+                                <h5>Sponsor's Contact</h5>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- /.card-body -->
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                <table class="table table-hover table-bordered table-striped">
+                                    <tbody>
+
+                                        <tr>
+                                            <td><b>Full Name </b></td>
+                                            <td>Mirianne </td>
+
+                                            <td><b>Phone No </b></td>
+                                            <td> 07015223337</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>State</b></td>
+                                            <td></td>
+
+                                            <td><b>City </b></td>
+                                            <td> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Phone No </b></td>
+                                            <td> 07015223337 </td>
+
+                                            <td><b>Email  </b></td>
+                                            <td> ikyengbuusu@gmail.com,  </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Relationship </b></td>
+                                            <td>Mother </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+
+                        <!-- /.card -->
+                    </div>
+
+                </div>
+            </div>
+                <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+
+</div>
+
+<!-- Livewire Component wire-end:OkatA7KPhKWxiE8WviYT -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+    <footer class="main-footer no-print">
+    <!-- Default to the left -->
+    <div class="text-center">
+        <strong>Copyright &copy; Veritas University Abuja 2024 </strong>.
+    </div>
+
+</footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src=" https://admission.veritas.edu.ng/ui/plugins/jquery/jquery.min.js "></script>
+
+<script src=" https://admission.veritas.edu.ng/ui/plugins/multilevel-form/multi_level.js "></script>
+
+<!-- Bootstrap 4 -->
+<script src=" https://admission.veritas.edu.ng/ui/plugins/bootstrap/js/bootstrap.bundle.min.js "></script>
+
+<!-- AdminLTE App -->
+<script src="https://admission.veritas.edu.ng/ui/dist/js/adminlte.min.js"></script>
+
+<script type="text/javascript" src="https://admission.veritas.edu.ng/ui/plugins/toastr/toastr.min.js"></script>
+
+<!-- Select2 -->
+<script src="https://admission.veritas.edu.ng/ui/plugins/select2/js/select2.full.min.js "></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+
+
+<script>
+    $(document).ready(function(){
+
+            toastr.options = {
+                "positionClass": "toast-bottom-right",
+                "progressBar": true,
+            }
+
+            window.addEventListener('hide_form', event => {
+            $('#form').modal('hide');
+            toastr.success(event.detail.message, 'Success!')
+
+            })
+
+            window.addEventListener('hide_jamb_form', event => {
+            $('#form_jamb').modal('hide');
+            toastr.success(event.detail.message, 'Success!')
+
+            })
+
+            //TODO LIST.
+            toastr.options.onHidden = function()
+             {
+                 console.log('goodbye');
+            }
+
+/*             $('#confirmationModal2').modal({
+                backdrop: 'static',
+                keyboard: false
+            }) */
+
+    });
+
+</script>
+
+<script>
+
+    window.addEventListener('show_form', event => {
+        $('#form').modal('show');
+    })
+
+    window.addEventListener('show_jamb_form', event => {
+        $('#form_jamb').modal('show');
+    })
+
+    window.addEventListener('show-delete-modal', event => {
+        $('#confirmationModal').modal('show');
+    })
+
+    window.addEventListener('hide-delete-modal', event => {
+        $('#confirmationModal').modal('hide');
+        toastr.success(event.detail.message, 'Success!')
+    })
+
+    window.addEventListener('show-end-modal', event => {
+        $('#confirmationModal2').modal('show');
+    })
+
+    window.addEventListener('hide-end-modal', event => {
+        $('#confirmationModal2').modal('hide');
+        toastr.success(event.detail.message, 'Success!')
+    })
+
+    window.addEventListener('show-publish-modal', event => {
+        $('#confirmationModal3').modal('show');
+    })
+
+    window.addEventListener('hide-publish-modal', event => {
+        $('#confirmationModal3').modal('hide');
+        toastr.success(event.detail.message, 'Success!')
+    })
+
+    window.addEventListener('show-process-modal', event => {
+        $('#confirmationModal4').modal('show');
+    })
+
+    window.addEventListener('hide-process-modal', event => {
+        $('#confirmationModal4').modal('hide');
+        toastr.success(event.detail.message, 'Success!')
+    })
+
+</script>
+
+
+<script src="/livewire/livewire.js?id=c69d0f2801c01fcf8166" data-turbo-eval="false" data-turbolinks-eval="false" ></script><script data-turbo-eval="false" data-turbolinks-eval="false" >window.livewire = new Livewire();window.Livewire = window.livewire;window.livewire_app_url = '';window.livewire_token = 'eH6LKdixKzLMCTvyuHYdcc35sQOEUru6OKCmI2DE';window.deferLoadingAlpine = function (callback) {window.addEventListener('livewire:load', function () {callback();});};let started = false;window.addEventListener('alpine:initializing', function () {if (! started) {window.livewire.start();started = true;}});document.addEventListener("DOMContentLoaded", function () {if (! started) {window.livewire.start();started = true;}});</script>
+
+</body>
+</html>
